@@ -4,8 +4,6 @@ import { BlockState } from '~/types';
 
 const game = new GamePlay(10, 10);
 const state = game.state;
-
-
 </script>
 
 <template>
