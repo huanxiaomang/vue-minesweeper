@@ -1,7 +1,8 @@
 <script setup lang="ts" generic="T extends any, O extends any">
 import { b } from 'unplugin-vue-router/dist/options-8dbadba3.js';
 import { BlockState } from '~/types';
-
+import { toggleToDark } from '~/composables/index.ts';
+toggleToDark();
 const game = new GamePlay(10, 10);
 const state = game.state;
 </script>
