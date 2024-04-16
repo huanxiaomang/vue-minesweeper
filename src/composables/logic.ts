@@ -7,15 +7,20 @@ export class GamePlay {
   public gameState = ref<'playing' | 'won' | 'lost'>('playing')
   public mineGenerated = ref<boolean>(false);
 
-  constructor(public width: number, public height: number) {
+  constructor(
+    public width: number,
+    public height: number,
+    public mines: number
+  ) {
     this.reset();
     useStorage('vue-sweeper-state', this.state);
     useStorage('vue-sweeper-mineGenerated', this.mineGenerated);
   }
 
   reset() {
-    this.gameState.value = 'playing'
-    this.mineGenerated.value = false
+    this.gameState.value = 'playing';
+    this.mineGenerated.value = false;
+    this.infoText.value = '开始扫雷';
     this.state.value
       = Array.from({ length: this.height }, (_, y) =>
         Array.from({ length: this.width }, (_, x) =>
